@@ -18,7 +18,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Lundco\\SilverStripe\\ReCaptcha": "src/"
+      "Lundco\\SilverStripe\\ReCaptcha\\": "src/"
     }
   },
   "support": {
