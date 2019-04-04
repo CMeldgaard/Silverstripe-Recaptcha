@@ -22,11 +22,19 @@ class RecaptchaField extends FormField
      */
     private $recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify';
 
+    private $customFunction = 0;
+    private $customFunctionName = 'none';
+
     /**
      * RecaptchaField constructor.
      */
-    public function __construct()
+    public function __construct($customFunction)
     {
+        if($customFunction){
+            $this->customFunction = 1;
+            $this->customFunctionName = $customFunction;
+        }
+
         parent::__construct('reCaptchaToken');
     }
 
@@ -48,12 +56,26 @@ class RecaptchaField extends FormField
      */
     public function Field($properties = array())
     {
+        static $jsIncluded = false;
+
         //Requirements::javascript();
         $vars = [
             "siteKey" => $this->getSiteKey(),
+            "customFunction" => $this->customFunction,
+            "customNameFunction" => $this->customFunctionName,
+            "formName" => $this->getForm()->name
         ];
 
-        Requirements::javascript('https://www.google.com/recaptcha/api.js?render='.$this->getSiteKey());
+        $recaptchaJs = 'https://www.google.com/recaptcha/api.js?render='.$this->getSiteKey();
+
+        //Load all requred scripts
+        $scripts = Requirements::backend()->getJavascript();
+
+        //Check if scrips already is loaded - if not, then require
+        if(!isset($scripts[$recaptchaJs])){
+            Requirements::javascript($recaptchaJs);
+        }
+
         Requirements::javascriptTemplate('lundco/silverstripe-recaptcha: js/recaptcha.js', $vars);
 
         return parent::Field($properties);
