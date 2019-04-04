@@ -5,15 +5,23 @@
   "keywords": ["silverstripe", "recaptcha", "google", "v3", "version 3"],
   "license": "MIT",
   "authors": [{
-	"name": "Lund&co",
-	"role": "Developer"
+    "name": "Lund&co",
+    "role": "Developer"
   }],
   "require": {
-	"silverstripe/cms": "~4.0"
+    "silverstripe/cms": "~4.0"
   },
-    "extra": {
-        "expose": [
-            "js"
-        ]
+  "extra": {
+    "expose": [
+      "js"
+    ]
+  },
+  "autoload": {
+    "psr-4": {
+      "lundco\\silverstripe-recaptcha\\": "src/"
     }
+  },
+  "support": {
+    "issues": "https://github.com/lundco/Silverstripe-Recaptcha/issues"
+  }
 }
