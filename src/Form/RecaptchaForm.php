@@ -9,7 +9,7 @@ use SilverStripe\Forms\Validator;
 
 class RecaptchaForm extends Form
 {
-    public function __construct(RequestHandler $controller,$name,FieldList $formFields,FieldList $formActions, Validator $validator = null){
+    public function __construct(RequestHandler $controller = null,$name,FieldList $formFields = null,FieldList $formActions = null, Validator $validator = null){
 
         $formFields->push(RecaptchaField::create());
 
