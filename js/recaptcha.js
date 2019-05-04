@@ -1,5 +1,5 @@
 window.addEventListener("load",function() {
-    document.getElementById('RecaptchaForm_'+'$formName').addEventListener('submit', function (event) {
+    document.getElementById('$formName').addEventListener('submit', function (event) {
         event.preventDefault();    //stop form from submitting
         var submittedForm = event.target;
         // needs for recaptacha ready

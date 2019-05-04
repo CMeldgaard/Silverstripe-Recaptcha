@@ -63,7 +63,7 @@ class RecaptchaField extends FormField
             "siteKey" => $this->getSiteKey(),
             "customFunction" => $this->customFunction,
             "customNameFunction" => $this->customFunctionName,
-            "formName" => $this->getForm()->name
+            "formName" => $this->getForm()->FormName()
         ];
 
         $recaptchaJs = 'https://www.google.com/recaptcha/api.js?render='.$this->getSiteKey();
