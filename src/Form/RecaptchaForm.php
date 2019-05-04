@@ -17,7 +17,8 @@ class RecaptchaForm extends Form
             $controller,
             $name,
             $formFields,
-            $formActions
+            $formActions,
+            $validator
         );
     }
 }
