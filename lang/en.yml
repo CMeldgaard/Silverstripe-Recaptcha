@@ -1,0 +1,4 @@
+en:
+  ReCaptchaField:
+    ErrorMessage: 'There was an error, please try again'
+    ScoreError: 'reCaptcha considers this submission to be spam'

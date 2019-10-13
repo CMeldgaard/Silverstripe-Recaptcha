@@ -30,7 +30,7 @@ class RecaptchaField extends FormField
      */
     public function __construct($customFunction)
     {
-        if($customFunction){
+        if ($customFunction) {
             $this->customFunction = 1;
             $this->customFunctionName = $customFunction;
         }
@@ -38,16 +38,19 @@ class RecaptchaField extends FormField
         parent::__construct('reCaptchaToken');
     }
 
-    public function getSiteKey(){
+    public function getSiteKey()
+    {
         return self::config()->get('siteKey');
     }
 
-    public function getSecretKey(){
+    public function getSecretKey()
+    {
         return self::config()->get('secretKey');
     }
 
-    public function getSpamLevel(){
-        return self::config()->get('spamLevel')/100;
+    public function getSpamLevel()
+    {
+        return self::config()->get('spamLevel') / 100;
     }
 
     /**
@@ -66,13 +69,13 @@ class RecaptchaField extends FormField
             "formName" => $this->getForm()->FormName()
         ];
 
-        $recaptchaJs = 'https://www.google.com/recaptcha/api.js?render='.$this->getSiteKey();
+        $recaptchaJs = 'https://www.google.com/recaptcha/api.js?render=' . $this->getSiteKey();
 
         //Load all requred scripts
         $scripts = Requirements::backend()->getJavascript();
 
         //Check if scrips already is loaded - if not, then require
-        if(!isset($scripts[$recaptchaJs])){
+        if (!isset($scripts[$recaptchaJs])) {
             Requirements::javascript($recaptchaJs);
         }
 
@@ -90,8 +93,11 @@ class RecaptchaField extends FormField
         //What value does the tokenfield have
         $recaptcha_response = $this->value();
 
-        if(!$recaptcha_response){
-            $this->getForm()->sessionMessage('Der skete en fejl - Prøv venligst igen', 'bad');
+        $recaptcha_score_error = _t('ReCaptchaField.ScoreError', 'reCaptcha vurdere at beskeden er spam');
+        $recaptcha_error = _t('ReCaptchaField.ErrorMessage', 'Der skete en fejl - Prøv venligst igen');
+
+        if (!$recaptcha_response) {
+            $this->getForm()->sessionMessage($recaptcha_error, 'bad');
             return false;
         }
 
@@ -99,14 +105,14 @@ class RecaptchaField extends FormField
         $recaptcha = file_get_contents($this->recaptcha_url . '?secret=' . $this->getSecretKey() . '&response=' . $recaptcha_response);
         $recaptcha = json_decode($recaptcha);
 
-        if(!isset($recaptcha->score)){
-            $validator->validationError($this->name, 'Der skete en fejl - Prøv venligst igen');
+        if (!isset($recaptcha->score)) {
+            $validator->validationError($this->name, $recaptcha_error);
             return false;
         }
 
         // Take action based on the score returned:
         if ($recaptcha->score < $this->getSpamLevel()) {
-            $validator->validationError($this->name, 'reCaptcha vurdere at beskeden er spam');
+            $validator->validationError($this->name, $recaptcha_score_error);
             return false;
         }
 

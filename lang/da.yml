@@ -1,0 +1,4 @@
+da:
+  ReCaptchaField:
+    ErrorMessage: 'Der skete en fejl - Prøv venligst igen'
+    ScoreError: 'reCaptcha vurdere at beskeden er spam'
