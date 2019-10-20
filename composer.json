@@ -5,7 +5,7 @@
   "keywords": ["silverstripe", "recaptcha", "google", "v3", "version 3"],
   "license": "MIT",
   "authors": [{
-    "name": "Lund&co",
+    "name": "Carsten Meldgaard",
     "role": "Developer"
   }],
   "require": {
