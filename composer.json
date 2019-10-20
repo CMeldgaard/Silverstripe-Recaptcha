@@ -1,5 +1,5 @@
 {
-  "name": "lundco/silverstripe-recaptcha",
+  "name": "meldgaard/silverstripe-recaptcha",
   "description": "Add recaptcha v3 to forms",
   "type": "silverstripe-vendormodule",
   "keywords": ["silverstripe", "recaptcha", "google", "v3", "version 3"],
