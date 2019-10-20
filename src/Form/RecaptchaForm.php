@@ -1,6 +1,6 @@
 <?php
 
-namespace Lundco\SilverStripe\ReCaptcha\Form;
+namespace Meldgaard\SilverStripe\ReCaptcha\Form;
 
 use SilverStripe\Control\RequestHandler;
 use SilverStripe\Forms\FieldList;
