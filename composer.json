@@ -18,10 +18,10 @@
   },
   "autoload": {
     "psr-4": {
-      "Lundco\\SilverStripe\\ReCaptcha\\": "src/"
+      "Meldgaard\\SilverStripe\\ReCaptcha\\": "src/"
     }
   },
   "support": {
-    "issues": "https://github.com/lundco/Silverstripe-Recaptcha/issues"
+    "issues": "https://github.com/meldgaard/Silverstripe-Recaptcha/issues"
   }
 }
