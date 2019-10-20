@@ -7,7 +7,7 @@ This module adds Google reCaptcha to SilverStripe 4.x, which you can use in your
 ## Usage
 Put your keys and spamscore in your app/_config/app.yml
 ```yml
-Lundco\SilverStripe\ReCaptcha\Form\RecaptchaField:
+Meldgaard\SilverStripe\ReCaptcha\Form\RecaptchaField:
   siteKey: 'Insert site key'
   secretKey: 'Insert secret key'
   spamLevel: 0-100
