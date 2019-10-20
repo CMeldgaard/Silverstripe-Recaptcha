@@ -2,7 +2,7 @@
 This module adds Google reCaptcha to SilverStripe 4.x, which you can use in your custom forms.
 
 ## Installation
-```composer require lundco/silverstripe-recaptcha```
+```composer require meldgaard/silverstripe-recaptcha```
 
 ## Usage
 Put your keys and spamscore in your app/_config/app.yml
