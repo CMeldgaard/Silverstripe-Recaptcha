@@ -79,7 +79,7 @@ class RecaptchaField extends FormField
             Requirements::javascript($recaptchaJs);
         }
 
-        Requirements::javascriptTemplate('lundco/silverstripe-recaptcha: js/recaptcha.js', $vars);
+        Requirements::javascriptTemplate('meldgaard/silverstripe-recaptcha: js/recaptcha.js', $vars);
 
         return parent::Field($properties);
     }
